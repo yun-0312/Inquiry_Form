@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -19,4 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/, [ContactController::class, index');
+Route::get('/', [AuthController::class, 'index']);

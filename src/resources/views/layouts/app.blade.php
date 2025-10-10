@@ -7,20 +7,21 @@
     <title>FashionablyLate</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inika&display=swap" rel="stylesheet">
     @yield('css')
 </head>
 
 <body>
     <header class="header">
-        <div class="header__inner">
-            <div class="header-logo">
-                <a class="header-logo__link" href="/">FashionablyLate</a>
-            </div>
-            <div class="header-link">
-                <form>
-                    <button class="header-link__button">logout</button>
-                </form>
-            </div>
+        <div class="header-logo">
+            <a class="header-logo__link" href="/">FashionablyLate</a>
+        </div>
+        <div class="header-link">
+            <form>
+                <button class="header-link__button">logout</button>
+            </form>
         </div>
     </header>
     <main>
