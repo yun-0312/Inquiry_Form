@@ -1,0 +1,75 @@
+.confirm-header__title {
+    font-size: 28px;
+    color: #8B7969;
+    font-weight: normal;
+}
+
+.confirm {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.confirm__heading {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #8B7969;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.confirm-table__row {
+    border-bottom: 1px solid #ddd;
+}
+
+.confirm-table__label {
+    background-color: #B49C8E;
+    color: #fff;
+    width: 30%;
+    text-align: left;
+    padding: 14px 18px;
+    vertical-align: top;
+    font-weight: normal;
+}
+
+.confirm-table__value {
+    background-color: #fff;
+    padding: 14px 18px;
+    color: #8B7969;
+    word-break: break-word;
+}
+
+.confirm__buttons {
+    text-align: center;
+}
+
+.confirm__button {
+    background-color: #B49C8E;
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirm__button:hover {
+    background-color: #8B7969;
+}
+
+.confirm__button--edit {
+    background-color: #fff;
+    color: #8B7969;
+    border: 1px solid #8B7969;
+}
+
+.confirm__button--edit:hover {
+    background-color: #8B7969;
+    color: #fff;
+}
