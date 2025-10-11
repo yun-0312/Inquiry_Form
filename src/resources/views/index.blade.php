@@ -88,6 +88,7 @@
                     <label class="contact__label">お問い合わせの種類 <span class="contact__required">※</span></label>
                     <select class="contact__select" name="category_id">
                         <option selected disabled>選択してください</option>
+                        @foreach ()
                     </select>
                     <div class="form__error">
                         @error('category_id')
