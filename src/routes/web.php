@@ -18,13 +18,13 @@ use App\Http\Controllers\Controller;
 */
 
 // お問い合わせフォーム入力ページ
-Route::get('/', [ContactController::class, 'index']);
+Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 
 //お問い合わせフォーム確認ページ
 Route::post('/confirm', [ContactController::class, 'confirm']);
 
 //サンクスページ
-Route::get('/thanks', [ContactController::class, 'complete']);
+Route::get('/thanks', [ContactController::class, 'send']);
 
 
 

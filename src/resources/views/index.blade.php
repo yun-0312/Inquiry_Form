@@ -32,9 +32,9 @@
                 <div class="contact__field">
                     <label class="contact__label">性別 <span class="contact__required">※</span></label>
                     <div class="contact__radio-group">
-                        <label for="1"><input type="radio" name="gender" value="1" checked> 男性</label>
-                        <label for="2"><input type="radio" name="gender" value="2"> 女性</label>
-                        <label for="3"><input type="radio" name="gender" value="3"> その他</label>
+                        <label for="gender1"><input type="radio" name="gender" id="gender1" value="1" checked> 男性</label>
+                        <label for="gender2"><input type="radio" name="gender" id="gender2" value="2"> 女性</label>
+                        <label for="gender3"><input type="radio" name="gender" id="gender3" value="3"> その他</label>
                     </div>
                     <div class="form__error">
                         @error('gender')

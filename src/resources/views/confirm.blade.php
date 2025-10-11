@@ -10,42 +10,62 @@
         <h2>Confirm</h2>
     </div>
     <form class="form">
-        <table class="confirm-table">
-            <tr class="confirm-table__row">
+        <table class="confirm-table__wrapper">
+            <tr class="confirm-table">
                 <th class="confirm-table__label">お名前</th>
-                <td class="confirm-table__value">山田　太郎</td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__label">性別</th>
-                <td class="confirm-table__value">男性</td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__label">メールアドレス</th>
-                <td class="confirm-table__value">test@example.com</td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__label">電話番号</th>
-                <td class="confirm-table__value">08012345678</td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__label">住所</th>
                 <td class="confirm-table__value">
-                    東京都渋谷区千駄ヶ谷1-2-3<br>
-                    千駄ヶ谷マンション101
+                    <p name="confirm-table--item">{{ $inputs['first_name'] }} {{ $inputs['last_name'] }}</p>
+                    <input type="hidden" name="first_name" value="$inputs['first_name']">
+                    <input type="hidden" name="last_name" value="{{ $inputs['last_name'] }}">
                 </td>
             </tr>
-            <tr class="confirm-table__row">
+            <tr class="confirm-table">
+                <th class="confirm-table__label">性別</th>
+                <td class="confirm-table__value">
+                    <p name="confirm-table--item">{{ $inputs['gender'] }}</p>
+                    <input type="hidden" name="gender" value="男性">
+                </td>
+            </tr>
+            <tr class="confirm-table">
+                <th class="confirm-table__label">メールアドレス</th>
+                <td class="confirm-table__value">
+                    <p name="confirm-table--item">{{ $inputs['email'] }}</p>
+                    <input type="hidden" name="email" value="t{{ $inputs['email'] }}">
+                </td>
+            </tr>
+            <tr class="confirm-table">
+                <th class="confirm-table__label">電話番号</th>
+                <td class="confirm-table__value">
+                    <p name="confirm-table--item">{{ $inputs['tel'] }}</p>
+                    <input type="hidden" name="tel" value="{{ $inputs['tel'] }}">
+                </td>
+            </tr>
+            <tr class="confirm-table">
+                <th class="confirm-table__label">住所</th>
+                <td class="confirm-table__value">
+                    <p name="confirm-table--item">{{ $inputs['address'] }}</p>
+                    <input type="hidden" name="address" value="{{ $inputs['address'] }}">
+                </td>
+            </tr>
+            <tr class="confirm-table">
+                <th class="confirm-table__label">建物名</th>
+                <td class="confirm-table__value">
+                    <p name="confirm-table--item">{{ $inputs['building'] }}</p>
+                    <input type="hidden" name="building" value="{{ $inputs['building'] }}">
+                </td>
+            </tr>
+            <tr class="confirm-table">
                 <th class="confirm-table__label">お問い合わせ内容</th>
                 <td class="confirm-table__value">
-                    届いた商品が注文した商品ではありませんでした。<br>
-                    商品の取り替えをお願いします。
+                    <p name="confirm-table--item">{{ $inputs['detail'] }}</p>
+                    <input type="hidden" name="detail" value="{{ $inputs['detail'] }}">
                 </td>
             </tr>
         </table>
 
         <div class="confirm__buttons">
-            <button class="confirm__button confirm__button--submit">送信</button>
-            <button class="confirm__button confirm__button--edit">修正</button>
+            <button class="confirm__button confirm__button--submit" type="submit" name="action" value="submit">送信</button>
+            <button class="confirm__button confirm__button--edit" type="submit" name="action" value="back">修正</button>
         </div>
     </form>
 </div>

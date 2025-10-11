@@ -1,11 +1,17 @@
+.confirm__content {
+    width: 90%;
+    max-width: 972px;
+    margin: 0 auto;
+}
+
 .confirm-header__title {
     font-size: 28px;
     color: #8B7969;
     font-weight: normal;
 }
 
-.confirm {
-    max-width: 800px;
+.confirm-table__wrapper {
+    max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -23,8 +29,8 @@
     margin-bottom: 30px;
 }
 
-.confirm-table__row {
-    border-bottom: 1px solid #ddd;
+.confirm-table {
+    border: 1px solid #ddd;
 }
 
 .confirm-table__label {
@@ -40,8 +46,12 @@
 .confirm-table__value {
     background-color: #fff;
     padding: 14px 18px;
-    color: #8B7969;
     word-break: break-word;
+}
+
+.confirm-table__value p {
+    width: 100%;
+    color: #8B7969;
 }
 
 .confirm__buttons {

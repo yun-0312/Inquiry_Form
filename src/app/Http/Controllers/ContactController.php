@@ -12,12 +12,25 @@ class ContactController extends Controller
         return view('index');
     }
 
-    public function confirm (Request $request) {
-        $tel1 = $request->input('tel1');
-        $tel2 = $request->input('tel2');
-        $tel3 = $request->input('tel3');
-        $tel = $tel1 . $tel2 . $tel3;
-        $content = $request->only(['first_name', 'last_name', 'gender', 'email', 'tel' => $tel, 'address', 'building', 'category_id', 'detail' ]);
-        return view('confirm', compact('content'));
+    public function confirm (ContactRequest $request) {
+        $tel = $request->input('tel1') . $request->input('tel2') . $request->input('tel3');
+        $inputs = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail' ]);
+        $inputs['tel'] = $tel;
+        return view('confirm', compact('inputs'));
+    }
+
+    public function send (Request $request) {
+        $action = $request->input('action');
+        // 修正ボタンを押した場合
+        if ($action === 'back') {
+            return redirect()
+                ->route('index')
+                ->withInput($request->except('action'));
+        }
+        //送信ボタンを押した場合
+        $inputs = $request->except('action');
+        Contact::create($inputs);
+        $request->session()->forget('_old_input');
+        return view('thanks');
     }
 }
