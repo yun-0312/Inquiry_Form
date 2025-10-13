@@ -23,7 +23,7 @@ Laravel環境構築
   ・Docker 28.4.0<br />
 
 ## ER図
-<img width="711" height="391" alt="Image" src="https://github.com/user-attachments/assets/d4e05a02-1383-4059-b3df-6b69f32608f4" />
+<img width="711" height="391" alt="Image" src="https://github.com/user-attachments/assets/fa0dc5a1-56ad-4ace-86ea-2bcdff399aea" />
 
 ## URL
 　・開発環境：http://localhost/< br>
