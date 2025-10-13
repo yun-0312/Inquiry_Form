@@ -23,7 +23,7 @@ Laravel環境構築
   ・Docker 28.4.0<br />
 
 ## ER図
-![](vscode-remote://wsl%2Bubuntu/home/yun-0312/coachtech/contact-form/contact-form.drawio.png)
+<img width="711" height="391" alt="Image" src="https://github.com/user-attachments/assets/d4e05a02-1383-4059-b3df-6b69f32608f4" />
 
 ## URL
 　・開発環境：http://localhost/< br>
