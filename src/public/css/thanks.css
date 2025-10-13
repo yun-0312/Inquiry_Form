@@ -1,0 +1,69 @@
+.thanks {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.thanks__background-text {
+    position: absolute;
+    bottom: 28%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20rem;
+    font-weight: bold;
+    color: #8B79690D;
+    white-space: nowrap;
+    z-index: 0;
+    user-select: none;
+}
+
+.thanks__content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.thanks__message {
+    font-size: 1.5rem;
+    color: #8B7969;
+    margin-bottom: 1.5rem;
+}
+
+.thanks__button {
+    display: inline-block;
+    background-color: #82756A;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.thanks__button:hover {
+    background-color: #B49C8E;
+}
+
+/* --- レスポンシブ対応 --- */
+@media screen and (max-width: 768px) {
+    .thanks__background-text {
+        position: absolute;
+        bottom: 38%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 8rem;
+}
+
+    .thanks__message {
+        font-size: 1.2rem;
+    }
+
+    .thanks__button {
+        font-size: 0.9rem;
+        padding: 0.6rem 2rem;
+    }
+}

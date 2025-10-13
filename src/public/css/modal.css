@@ -1,0 +1,113 @@
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.is-active {
+    display: flex;
+}
+
+/* 背景のオーバーレイ */
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+/* モーダル本体 */
+.modal__content {
+    position: relative;
+    background: #fff;
+    padding: 40px 50px;
+    width: 700px;
+    max-height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.3s ease;
+}
+
+/* 閉じるボタン（右上の×） */
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal__close:hover {
+    color: #333;
+}
+
+/* モーダル内の内容 */
+#modalContent {
+    margin-top: 20px;
+}
+
+/* テーブル風のレイアウト */
+.modal__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modal__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.modal__label {
+    font-weight: bold;
+    color: #555;
+    width: 35%;
+}
+
+.modal__value {
+    width: 60%;
+    color: #333;
+    word-wrap: break-word;
+}
+
+/* ボタンエリア */
+.modal__actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.modal__button {
+    padding: 10px 25px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal__button--delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.modal__button--delete:hover {
+    background-color: #c0392b;
+}
+
+.modal__button--close {
+    background-color: #ccc;
+    color: #333;
+}
+
+.modal__button--close:hover {
+    background-color: #aaa;
+}

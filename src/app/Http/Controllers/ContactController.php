@@ -5,20 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
+
 use App\Http\Requests\ContactRequest;
 
 
 class ContactController extends Controller
 {
     public function index () {
-        
-        return view('index');
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 
     public function confirm (ContactRequest $request) {
-        $tel = $request->input('tel1') . $request->input('tel2') . $request->input('tel3');
+        $tel1 = $request->input('tel1');
+        $tel2 = $request->input('tel2');
+        $tel3 = $request->input('tel3');
+        $tel = $tel1 . $tel2 . $tel3;
         $inputs = $request->only(['first_name', 'last_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail' ]);
         $inputs['tel'] = $tel;
+        $inputs['tel1'] = $tel1;
+        $inputs['tel2'] = $tel2;
+        $inputs['tel3'] = $tel3;
+        $category = Category::find($inputs['category_id']);
+        $inputs['category_name'] = $category ? $category->content : '';
         return view('confirm', compact('inputs'));
     }
 
@@ -27,7 +36,7 @@ class ContactController extends Controller
         // 修正ボタンを押した場合
         if ($action === 'back') {
             return redirect()
-                ->route('index')
+                ->route('contact.index')
                 ->withInput($request->except('action'));
         }
         //送信ボタンを押した場合
@@ -36,4 +45,5 @@ class ContactController extends Controller
         $request->session()->forget('_old_input');
         return view('thanks');
     }
+
 }

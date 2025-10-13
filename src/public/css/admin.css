@@ -1,0 +1,250 @@
+.admin {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    color: #4B4034;
+}
+
+.admin__title {
+    font-size: 28px;
+    color: #8B7969;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 検索フォーム全体 */
+.search__wrap {
+    width: 100%;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.search-form__item-input,
+.search-form__item-select,
+.search-form__item-filter {
+    border: 1px solid #d6c9b7;
+    background-color: #fff;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #4a3f35;
+    margin-right: 20px;
+}
+
+.search-form__item-input {
+    width: 300px;
+}
+
+.search-form__item-filter {
+    width: 160px;
+}
+
+.search-form__button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-form__button-search,
+.admin__reset-button {
+    display: inline-block;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100px;
+}
+
+.search-form__button-search {
+    background-color: #7c6a58;
+    color: #fff;
+    border: none;
+    margin-right: 15px;
+}
+
+.search-form__button-search:hover {
+    background-color: #6b5a4a;
+}
+
+.admin__reset-button {
+    background-color: #d6c9b7;
+    color: #fff;
+}
+
+.admin__reset-button:hover {
+    background-color: #c3b29e;
+}
+
+/* テーブル */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    border-bottom: 1px solid #E0DFDE;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.admin-table th {
+    background-color: #B49C8E;
+    color: #ffffff;
+}
+
+.admin-table tr {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E0DFDE;
+    border-left: 1px solid #E0DFDE;
+}
+
+.admin__pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.admin-table__detail-button {
+    background: #ffffff;
+    border: 1px solid #D9C6B599;
+    color: #D9C6B5;
+    padding: 5px 15px;
+    transition: 0.2s;
+}
+
+.admin-table__detail-button:hover {
+    background: #d6c4b8;
+    color: #ffffff;
+}
+
+/* ページネーション */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Laravel標準のpaginationクラスを上書き */
+.pagination {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+}
+
+/* ページ番号・矢印 */
+.pagination li a,
+.pagination li span {
+    display: block;
+    padding: 6px 12px;
+    min-width: 32px;
+    text-align: center;
+    text-decoration: none;
+    color: #8b7969;
+    background-color: #fff;
+    border-right: 1px solid #dcdcdc;
+    font-size: 14px;
+}
+
+/* 最後の要素の右線を消す */
+.pagination li:last-child a,
+.pagination li:last-child span {
+    border-right: none;
+}
+
+/* 現在ページ */
+.pagination li.active span {
+    background-color: #8b7969;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ホバー時 */
+.pagination li a:hover {
+    background-color: #b49c8e;
+    color: #fff;
+}
+
+/* 非アクティブ時（例: 最初や最後の「<」「>」） */
+.pagination li.disabled span {
+    color: #ccc;
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    list-style: none;
+    gap: 5px;
+    padding: 0;
+}
+
+.pagination__item {
+    border: 1px solid #8b7969;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8b7969;
+    background-color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination__item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 28px;
+}
+
+.pagination__item.active {
+    background-color: #8b7969;
+    color: #fff;
+}
+
+.pagination__item.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.export-button {
+    background-color: #E1DBD699;
+    color: #8B7969;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.admin__export-button:hover {
+    background-color: #6f5d4c;
+}

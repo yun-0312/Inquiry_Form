@@ -1,7 +1,7 @@
 .confirm__content {
-    width: 90%;
-    max-width: 972px;
-    margin: 0 auto;
+    width: 95%;
+    max-width: 1000px;
+    margin: 60px auto;
 }
 
 .confirm-header__title {
@@ -11,9 +11,10 @@
 }
 
 .confirm-table__wrapper {
-    max-width: 900px;
+    width: 100%;
+    /* max-width: 900px; */
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 30px 40px;
 }
 
 .confirm__heading {
@@ -26,6 +27,7 @@
 .confirm-table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     margin-bottom: 30px;
 }
 
@@ -36,11 +38,12 @@
 .confirm-table__label {
     background-color: #B49C8E;
     color: #fff;
-    width: 30%;
+    width: 25%;
     text-align: left;
     padding: 14px 18px;
     vertical-align: top;
     font-weight: normal;
+    white-space: nowrap;
 }
 
 .confirm-table__value {

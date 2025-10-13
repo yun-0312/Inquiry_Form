@@ -4,39 +4,55 @@
 <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
 @endsection
 
+@section('header')
+    @extends('layouts.header')
+@endsection
+
 @section('content')
 <div class="confirm__content">
     <div class="confirm__heading">
         <h2>Confirm</h2>
     </div>
-    <form class="form">
+    <form class="form" action="{{ route('contact.send') }}" method="post">
+        @csrf
         <table class="confirm-table__wrapper">
             <tr class="confirm-table">
                 <th class="confirm-table__label">お名前</th>
                 <td class="confirm-table__value">
-                    <p name="confirm-table--item">{{ $inputs['first_name'] }} {{ $inputs['last_name'] }}</p>
-                    <input type="hidden" name="first_name" value="$inputs['first_name']">
+                    <p name="confirm-table--item">{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</p>
+                    <input type="hidden" name="first_name" value="{{ $inputs['first_name'] }}">
                     <input type="hidden" name="last_name" value="{{ $inputs['last_name'] }}">
                 </td>
             </tr>
             <tr class="confirm-table">
                 <th class="confirm-table__label">性別</th>
                 <td class="confirm-table__value">
-                    <p name="confirm-table--item">{{ $inputs['gender'] }}</p>
-                    <input type="hidden" name="gender" value="男性">
+                    <p name="confirm-table--item">
+                        @if ($inputs['gender'] == 1)
+                        男性
+                        @elseif ($inputs['gender'] == 2)
+                        女性
+                        @else
+                        その他
+                        @endif
+                    </p>
+                    <input type="hidden" name="gender" value="{{ $inputs['gender'] }}">
                 </td>
             </tr>
             <tr class="confirm-table">
                 <th class="confirm-table__label">メールアドレス</th>
                 <td class="confirm-table__value">
                     <p name="confirm-table--item">{{ $inputs['email'] }}</p>
-                    <input type="hidden" name="email" value="t{{ $inputs['email'] }}">
+                    <input type="hidden" name="email" value="{{ $inputs['email'] }}">
                 </td>
             </tr>
             <tr class="confirm-table">
                 <th class="confirm-table__label">電話番号</th>
                 <td class="confirm-table__value">
                     <p name="confirm-table--item">{{ $inputs['tel'] }}</p>
+                    <input type="hidden" name="tel1" value="{{ $inputs['tel1'] }}">
+                    <input type="hidden" name="tel2" value="{{ $inputs['tel2'] }}">
+                    <input type="hidden" name="tel3" value="{{ $inputs['tel3'] }}">
                     <input type="hidden" name="tel" value="{{ $inputs['tel'] }}">
                 </td>
             </tr>
@@ -52,6 +68,13 @@
                 <td class="confirm-table__value">
                     <p name="confirm-table--item">{{ $inputs['building'] }}</p>
                     <input type="hidden" name="building" value="{{ $inputs['building'] }}">
+                </td>
+            </tr>
+            <tr class="confirm-table">
+                <th class="confirm-table__label">お問い合わせの種類</th>
+                <td class="confirm-table__value">
+                    <p>{{ $inputs['category_name'] }}</p>
+                    <input type="hidden" name="category_id" value="{{ $inputs['category_id'] }}">
                 </td>
             </tr>
             <tr class="confirm-table">
