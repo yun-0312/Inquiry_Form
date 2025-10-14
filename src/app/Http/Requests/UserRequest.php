@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 
 class UserRequest extends FormRequest
 {
@@ -37,5 +39,19 @@ class UserRequest extends FormRequest
             'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
             'password.required' => 'パスワードを入力してください',
         ];
+    }
+
+    /**
+     * Fortifyの配列入力用バリデーション
+     */
+    public function validateResolvedWithData(array $data)
+    {
+        $validator = Validator::make($data, $this->rules(), $this->messages());
+
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        return $validator->validated();
     }
 }

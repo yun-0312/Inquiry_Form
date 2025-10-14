@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +29,12 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Fortify の登録アクションを上書き
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\CreatesNewUsers::class,
+            CreateNewUser::class
+        );
+
         Fortify::createUsersUsing(CreateNewUser::class);
 
         Fortify::registerView(function () {

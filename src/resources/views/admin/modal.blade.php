@@ -1,7 +1,7 @@
 <div class="modal__table">
     <div class="modal__row">
         <div class="modal__label">お名前</div>
-        <div class="modal__value">{{ $contact->first_name }} {{ $contact->last_name }}</div>
+        <div class="modal__value">{{ $contact->last_name }} {{ $contact->first_name }}</div>
     </div>
     <div class="modal__row">
         <div class="modal__label">性別</div>
