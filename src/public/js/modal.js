@@ -1,31 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('contactModal');
     const modalContent = document.getElementById('modalContent');
-    const closeBtn = document.querySelector('.modal__close');
 
-    document.querySelectorAll('.detail-button').forEach(button => {
-        button.addEventListener('click', async () => {
-            const contactId = button.dataset.id;
+    if (!modal) {
+        console.warn('モーダル要素が見つかりません: #contactModal');
+        return;
+    }
 
-            try {
-                const response = await fetch(`/admin/contacts/${contactId}`);
-                if (!response.ok) throw new Error('Network response was not ok');
+    const closeModal = () => {
+        modal.classList.remove('is-active');
+    };
 
-                const html = await response.text();
-                modalContent.innerHTML = html;
-                modal.classList.add('is-active');
-            } catch (error) {
-                console.error('Error fetching contact details:', error);
-            }
-        });
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+
+        if (target.closest && target.closest('.modal__close')) {
+            e.preventDefault();
+            closeModal();
+            return;
+        }
     });
 
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('is-active');
-    });
+    document.addEventListener('click', async (event) => {
+        const button = event.target.closest && event.target.closest('.detail-button');
+        if (!button) return;
 
-    // オーバーレイをクリックしたら閉じる
-    document.querySelector('.modal__overlay').addEventListener('click', () => {
-        modal.classList.remove('is-active');
+        const contactId = button.dataset.id;
+        const url = button.dataset.url || `/admin/contacts/${contactId}`;
+
+        if (modalContent) modalContent.innerHTML = '<p>読み込み中...</p>';
+        modal.classList.add('is-active');
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+            const html = await response.text();
+            if (modalContent) modalContent.innerHTML = html;
+        } catch (err) {
+            console.error('Error fetching contact details:', err);
+            if (modalContent) modalContent.innerHTML = '<p>詳細の取得に失敗しました。</p>';
+        }
     });
 });

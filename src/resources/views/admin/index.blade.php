@@ -74,9 +74,7 @@
 
     <!-- モーダル -->
     <div id="contactModal" class="modal">
-        <div class="modal__overlay"></div>
         <div class="modal__content">
-            <button class="modal__close">&times;</button>
             <div id="modalContent"></div>
         </div>
     </div>

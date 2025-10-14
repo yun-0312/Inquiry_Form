@@ -4,10 +4,12 @@
     </div>
     <div class="header-link">
         @if (Auth::check())
-        <form class="form" action="{{ route('logout') }}" method="post">
-            @csrf
-            <button class="header-link__button">logout</button>
-        </form>
+            <form class="header__logout-form" action="{{ route('logout') }}" method="post">
+                @csrf
+                <button class="header-link__button">logout</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="header-link__button">login</a>
         @endif
     </div>
-</header>
+</header>   

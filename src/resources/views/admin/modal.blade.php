@@ -32,5 +32,5 @@
         @method('DELETE')
         <button type="submit" class="modal__button modal__button--delete">削除</button>
     </form>
-    <button class="modal__button modal__button--close modal__close">閉じる</button>
+    <button type="button" class="modal__button modal__button--close modal__close">×</button>
 </div>

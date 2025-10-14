@@ -11,42 +11,14 @@
     display: flex;
 }
 
-/* 背景のオーバーレイ */
-.modal__overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(3px);
-}
-
-/* モーダル本体 */
 .modal__content {
     position: relative;
-    background: #fff;
+    background: #ffffff;
     padding: 40px 50px;
     width: 700px;
     max-height: 100vh;
     overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    animation: fadeIn 0.3s ease;
-}
-
-/* 閉じるボタン（右上の×） */
-.modal__close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 28px;
-    font-weight: bold;
-    color: #999;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.modal__close:hover {
-    color: #333;
+    border: 1px solid#8B7969;
 }
 
 /* モーダル内の内容 */
@@ -54,7 +26,6 @@
     margin-top: 20px;
 }
 
-/* テーブル風のレイアウト */
 .modal__table {
     width: 100%;
     border-collapse: collapse;
@@ -104,10 +75,24 @@
 }
 
 .modal__button--close {
-    background-color: #ccc;
-    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #8B7969;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .modal__button--close:hover {
-    background-color: #aaa;
+    background: #f7f6f5;
 }
