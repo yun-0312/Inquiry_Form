@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-@extends('layouts.header_login')
+    @include('layouts.header_login')
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
                 <input class="search-form__item-input" type="text" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください">
                 <select name="gender" class="search-form__item-select">
                     <option value="" disabled {{ request('gender') === null || request('gender') === '' ? 'selected' : '' }}>性別</option>
-                    <option value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>全て</option>>
+                    <option value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>全て</option>
                     <option value="1" {{ request('gender') == 1 ? 'selected' : '' }}>男性</option>
                     <option value="2" {{ request('gender') == 2 ? 'selected' : '' }}>女性</option>
                     <option value="3" {{ request('gender') == 3 ? 'selected' : '' }}>その他</option>
@@ -26,7 +26,7 @@
                 <select name="category_id" class="search-form__item-select">
                     <option value="">お問い合わせの種類</option>
                     @foreach ($categories as $category)
-                    <option value=" {{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->content }}</option>
+                    <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->content }}</option>
                     @endforeach
                 </select>
                 <input type="date" name="created_at" class="search-form__item-filter" value="{{ request('created_at') }}">
@@ -37,12 +37,16 @@
             </div>
         </form>
     </div>
-    <div class="export__button">
-        <a href="{{ route('admin.export', request()->query()) }}" class="export-button">エクスポート</a>
+
+    <div class="admin-utility__item">
+        <div class="export__button">
+            <a href="{{ route('admin.export', request()->query()) }}" class="export-button">エクスポート</a>
+        </div>
+        <div class="pagination-wrapper">
+            {{ $contacts->links('vendor.pagination.custom') }}
+        </div>
     </div>
-    <div class="pagination-wrapper">
-        {{ $contacts->appends(request()->query())->links() }}
-    </div>
+    
     <table class="admin-table">
         <tr class="admin-table__head">
             <th>ID</th>

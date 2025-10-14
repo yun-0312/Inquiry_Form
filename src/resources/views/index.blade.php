@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    @extends('layouts.header')
+    @include('layouts.header')
 @endsection
 
 @section('content')
