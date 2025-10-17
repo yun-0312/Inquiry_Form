@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function index(Request $request) {
         $contacts = Contact::with('category')
-            ->filter($request->only(['category_id', 'gender', 'keyword', 'created_at']))->paginate(7);
+            ->filter($request->only(['category_id', 'gender', 'keyword', 'created_at']))->paginate(7)->appends(request()->query());
         $query = Contact::with('category')->filter($request->all());
         $categories = Category::all();
         return view('admin.index', compact('contacts', 'categories'));
