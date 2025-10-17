@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    @include('layouts.header_login')
+    @include('layouts.header_register')
 @endsection
 
 @section('content')

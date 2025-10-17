@@ -9,7 +9,7 @@
                 <button class="header-link__button">logout</button>
             </form>
         @else
-            <a href="{{ route('login') }}" class="header-link__button">login</a>
+            <a href="{{ route('register') }}" class="header-link__button">register</a>
         @endif
     </div>
 </header>

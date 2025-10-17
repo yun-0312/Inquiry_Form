@@ -58,7 +58,7 @@
             <!-- メールアドレス -->
             <div class="contact__field">
                 <label class="contact__label">メールアドレス <span class="contact__required">※</span></label>
-                <input type="email" name="email" class="contact__input" placeholder="例: test@example.com" value="{{ old('email') }}">
+                <input type="text" name="email" class="contact__input" placeholder="例: test@example.com" value="{{ old('email') }}">
             </div>
             <div class="form__error">
                 @error('email')
